@@ -13,7 +13,7 @@ RUN DEBIAN_FRONTEND=noninteractive && \
 	sed -i "s/UsePAM.*/UsePAM yes/g" /etc/ssh/sshd_config && \
 	sed -i "s/PermitRootLogin.*/PermitRootLogin no/g" /etc/ssh/sshd_config && \
 	sed -i "s/Subsystem.*/Subsystem sftp internal-sftp/g" /etc/ssh/sshd_config && \
-	echo "ChrootDirectory /home/www" >> /etc/ssh/sshd_config && \
+	echo "ChrootDirectory /home" >> /etc/ssh/sshd_config && \
 	echo "ForceCommand internal-sftp" >> /etc/ssh/sshd_config
 
 ENV SFTP_PASS **None**
