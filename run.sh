@@ -1,9 +1,9 @@
 #!/bin/bash
 
-sed -i "s/ChrootDirectory.*/ChrootDirectory $SFTP_PATH/g" /etc/ssh/sshd_config
-sed -i "s/www-data*/www-data:x:33:33:www-data:$SFTP_PATH:/bin/bash/g" /etc/passwd
+sed -i "s/ChrootDirectory.*/ChrootDirectory \/home\/www/g" /etc/ssh/sshd_config
+sed -i "s/www-data.*/www-data:x:33:33:www-data:\/home\/www:\/bin\/bash/g" /etc/passwd
 
-chown 33:33 $SFTP_PATH
+chown 33:33 /home/*
 
 if [ ! -f /.www-data_pw_set ]; then
 	PASS=${SFTP_PASS:-$(pwgen -s 12 1)}

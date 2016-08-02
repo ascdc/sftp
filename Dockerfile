@@ -17,6 +17,5 @@ RUN DEBIAN_FRONTEND=noninteractive && \
 	echo "ForceCommand internal-sftp" >> /etc/ssh/sshd_config
 
 ENV SFTP_PASS **None**
-ENV SFTP_PATH /home/www
 
 ENTRYPOINT ["/run.sh"]
