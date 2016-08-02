@@ -1,6 +1,5 @@
 #!/bin/bash
 
-sed -i "s/ChrootDirectory.*/ChrootDirectory \/home\/www/g" /etc/ssh/sshd_config
 sed -i "s/www-data.*/www-data:x:33:33:www-data:\/home\/www:\/bin\/bash/g" /etc/passwd
 
 chown 33:33 /home/*
