@@ -3,6 +3,7 @@
 sed -i "s/www-data.*/www-data:x:33:33:www-data:\/home\/www:\/bin\/bash/g" /etc/passwd
 
 chown 33:33 /home/*
+chmod 750 /home/*
 
 if [ ! -f /.www-data_pw_set ]; then
 	PASS=${SFTP_PASS:-$(pwgen -s 12 1)}
