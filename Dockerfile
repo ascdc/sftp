@@ -15,9 +15,7 @@ RUN DEBIAN_FRONTEND=noninteractive && \
 	echo "ChrootDirectory /home" >> /etc/ssh/sshd_config && \
 	echo "ClientAliveInterval 300" >> /etc/ssh/sshd_config && \
 	echo "ClientAliveCountMax 5" >> /etc/ssh/sshd_config && \ 
-	rm /usr/bin/apt-get && \
-	alias apt-get="echo '- command not found'" && \
-	source /root/.bashrc
+	rm /usr/bin/apt-get	
 
 ENV SFTP_PASS **None**
 
