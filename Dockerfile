@@ -12,11 +12,12 @@ RUN DEBIAN_FRONTEND=noninteractive && \
 	sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && \
 	sed -i "s/UsePAM.*/UsePAM yes/g" /etc/ssh/sshd_config && \
 	sed -i "s/PermitRootLogin.*/PermitRootLogin no/g" /etc/ssh/sshd_config && \
-	sed -i "s/Subsystem.*/Subsystem sftp internal-sftp/g" /etc/ssh/sshd_config && \
 	echo "ChrootDirectory /home" >> /etc/ssh/sshd_config && \
-	echo "ForceCommand internal-sftp" >> /etc/ssh/sshd_config && \
 	echo "ClientAliveInterval 300" >> /etc/ssh/sshd_config && \
-	echo "ClientAliveCountMax 5" >> /etc/ssh/sshd_config
+	echo "ClientAliveCountMax 5" >> /etc/ssh/sshd_config && \ 
+	rm /usr/bin/apt-get && \
+	alias apt-get="echo '- command not found'" && \
+	source /root/.bashrc
 
 ENV SFTP_PASS **None**
 
