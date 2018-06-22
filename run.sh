@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sed -i "s/www-data.*/www-data:x:33:33:www-data:\/home\/www:\/bin\/bash/g" /etc/passwd
+alias apt-get="echo 'bash: apt-get: command not found'" 
 
 chown 33:33 /home/*
 chmod 750 /home/*
